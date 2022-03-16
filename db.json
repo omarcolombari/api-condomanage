@@ -1,8 +1,30 @@
 {
-    "users":[],
-    "tenants":[],
-    "finance":[],
-    "settings":[],
-    "demands":[]
-
+  "users": [
+    {
+      "email": "teste@testgmail.com",
+      "password": "$2a$10$bIN90CE3DuuTZYqH/NNrZuebkHdt/59/FbGumJ/hHHXx0iFNsg7iu",
+      "name": "Condominio Milenius",
+      "cnpj": "00000000",
+      "cpf": "0000000",
+      "valueBase": "380.00",
+      "complement": "Predio",
+      "address": "rua professor ",
+      "id": 1
+    }
+  ],
+  "tenants": [
+    {
+      "email": "jose@gmail.com",
+      "password": "123456",
+      "number": "402",
+      "responsible": "maria",
+      "cpf": "101010101",
+      "value": "10142",
+      "status": "Alugado",
+      "id": 1
+    }
+  ],
+  "finance": [],
+  "settings": [],
+  "demands": []
 }

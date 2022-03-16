@@ -1,6 +1,8 @@
 {
     "users":[],
     "tenants":[],
-    "finance":[]
+    "finance":[],
+    "settings":[],
+    "demands":[]
 
 }

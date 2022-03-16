@@ -13,6 +13,7 @@ const rules = auth.rewriter({
     tenants:664,
     finance:660,
     settings:660,
+    demands:664  
 });
 
 app.use(cors());

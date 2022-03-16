@@ -124,3 +124,19 @@ para cadastrar um novo valor e necesario na requisicao passa o bearer token, e u
 
 GET / settings
 Para acessa os dados e nessario passar o Bearer Token no corpo da requisicao
+
+
+### demands
+	POST/demands
+
+Somente o usuario Logado pode registrar um novo morador. ELE VAI PRECISAR DO BEARER TOKEN NA REQUISICAO .
+
+# Exemplo :  {
+            "description":"cobrar 14 meses de aluguel",
+            "status": "Dependete",
+			"valor" : "14.000"
+         	}
+
+GET /demands 
+
+Todos pode ver estas informacoes atraves deste endpoint.

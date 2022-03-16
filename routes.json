@@ -1,5 +1,8 @@
 {
     "users":600,
     "tenants":664,
-    "finance":660
+    "finance":660,
+    "settings":660,
+    "demands":664
+    
 }

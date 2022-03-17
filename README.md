@@ -1,5 +1,7 @@
 <h1 align='center'> Api Condo Manage </h1>
 
+A url base da API é: https://api-condomanage.herokuapp.com/
+
 # **Rotas que não precisam de autenticação**
 
 <h2 align ='center'> Cadastro de usuários </h2>

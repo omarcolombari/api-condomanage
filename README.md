@@ -12,9 +12,11 @@ Este endpoint /register, irá cadastrar o usuário na lista de "Users", sendo qu
 	"email": "teste@teste.com",
 	"password": "123456",
 	"name": "Condominio Milenius",
+	"adm": "Roberto",
+	"apartments": 300,
 	"cnpj": "xxxxxxxxxxx",
 	"cpf": "xxxxxxxxxxx",
-	"valueBase" : "380.00",
+	"valueBase" : 380,
 	"complement" : "Predio",
 	"address": "Rua Professor Raimundo"
 }
@@ -29,7 +31,16 @@ Se tudo der certo, essa será a resposta:
 	"accessToken": "xxxxxxxx.xxxxxxxx.xxxxxxxx",
 	"user": {
 		"email": "teste@teste.com",
-		"id": 1 
+		"password": "123456",
+		"name": "Condominio Milenius",
+		"adm": "Roberto",
+		"apartments": 300,
+		"cnpj": "xxxxxxxxxxx",
+		"cpf": "xxxxxxxxxxx",
+		"valueBase" : 380,
+		"complement" : "Predio",
+		"address": "Rua Professor Raimundo",
+		"id": 1
 	}
 }
 ```
@@ -52,19 +63,20 @@ Se tudo der certo, essa será a resposta:
 {
 	"accessToken": "xxxxxxxx.xxxxxxxx.xxxxxxxx",
 	"user": {
-		"email": "Ronaldo@testgmail.com",
+		"email": "teste@teste.com",
 		"name": "Condominio Milenius",
+		"adm": "Roberto",
+		"apartments": 300,
 		"cnpj": "xxxxxxxxxxx",
 		"cpf": "xxxxxxxxxxx",
-		"valueBase": "380.00",
-		"complement": "Prédio",
-		"address": "Rua Professor Raimundo",
-		"id": 3
+		"valueBase" : 380,
+		"complement" : "Predio",
+		"address": "Rua Professor Raimundo"
 	}
 }
 ```
 
-# **Rotas que precisam de autenticação***
+# **Rotas que precisam de autenticação**
 ## *Nessas rotas é necessario infomar no corpo da requisição o id em que você está logado, passe-o como "UserId". E também o seu token no header.*
 ### Por exemplo:
 ```json
@@ -76,7 +88,7 @@ Se tudo der certo, essa será a resposta:
 
 <h2 align ='center'> Cadastro de moradores </h2>
 
-Somente o usuário logado, que no caso sera o sindico, pode registrar um novo morador.
+Somente o usuário logado, que no caso será o síndico, poderá registrar um novo morador.
 
 `POST /tenants - FORMATO DA REQUISIÇÃO`
 ```json
@@ -85,7 +97,7 @@ Somente o usuário logado, que no caso sera o sindico, pode registrar um novo mo
 	"email":"jose@gmail.com",
 	"userId": 1,
 	"password": "123456",
-	"number": "402",
+	"number": 122,
 	"responsible": "Maria",
 	"cpf":"xxxxxxxxxx",
 	"value": 1000,
@@ -95,7 +107,7 @@ Somente o usuário logado, que no caso sera o sindico, pode registrar um novo mo
 
 O síndico também pode alterar esses dados utilizando este endpoint: 
 
-`PUT /tenants/:tenant_id - FORMATO DA REQUISIÇÃO`
+`PATCH /tenants/:tenant_id - FORMATO DA REQUISIÇÃO`
 ```json
 {
 	"name": "Mario",
@@ -118,10 +130,10 @@ Cadastre suas entradas e saidas finaceiras do prédio.
 
 ```json
 {
-	"name": "mensalidade condominio",
-	"value": "380",
+	"name": "Mensalidade apartamento 10",
+	"value": 380,
 	"status": "Entrada",
-	"userId": 3
+	"userId": 3,
 }
 ```
 `POST /finances - FORMATO DA RESPOSTA - STATUS 201`
@@ -134,6 +146,8 @@ Cadastre suas entradas e saidas finaceiras do prédio.
 	"id": 1
 }
 ```
+
+Você pode ver todas as finaças com este endpoint:
 
 `GET /finances - FORMATO DA RESPOTA - 200`
 ```json
@@ -153,6 +167,9 @@ Cadastre suas entradas e saidas finaceiras do prédio.
 		"id": 2
 	}
 ]
+
+Também é possivel deletar uma finança:
+
 ```
 
 `DELETE /finances/:finance_id `
@@ -163,24 +180,27 @@ Não é necessário um corpo de requisição
 
 <h2 align ='center'> Alterar dados do prédio </h2>
 
-Para alterar os dados de sua conta, voce deve inserir email e password no corpo da requisição e utilizar este endpoint
+Para alterar os dados de sua conta, voce deve utilizar este endpoint
 
-`PUT /users/:user_id - FORMATO DA REQUISIÇÃO`
+`PATCH /users/:user_id - FORMATO DA REQUISIÇÃO`
 ```json
 {
-	"name": "mensalidade condominio",
-	"value": "380",
-	"status": "Entrada",
-	"userId": 3
+	"apartments": 350,
 }
 ```
-`PUT /users/:user_id - FORMATO DA RESPOSTA - STATUS 200`
+`PATCH /users/:user_id - FORMATO DA RESPOSTA - STATUS 200`
 ```json
 {
-	"name": "mensalidade condominio",
-	"value": "380",
-	"status": "Entrada",
-	"userId": 3,
+	"email": "teste@teste.com",
+	"password": "123456",
+	"name": "Condominio Milenius",
+	"adm": "Roberto",
+	"apartments": 350,
+	"cnpj": "xxxxxxxxxxx",
+	"cpf": "xxxxxxxxxxx",
+	"valueBase" : 380,
+	"complement" : "Predio",
+	"address": "Rua Professor Raimundo",
 	"id": 1
 }
 ```
@@ -232,19 +252,16 @@ Para ver as demandas, utilize este endpoint:
 ]
 ```
 
-`PUT /demands/;demand_id - FORMATO DA REQUISIÇÃO - 201`
+Para alterar uma demanda, utilize esse endpoint:
+
+`PATCH /demands/:demand_id - FORMATO DA REQUISIÇÃO`
 ```json
 {
 	"status": "Ok",
 }
 ```
 
-`PUT /demands/:demand_id - FORMATO DA REQUISIÇÃO - 201`
-```json
-{
-	"status": "Ok",
-}
-```
+E para deletar, utilize este:
 
 `DELETE /demands/:demand_id`
 ```

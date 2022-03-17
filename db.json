@@ -1,6 +1,37 @@
 {
-  "users": [],
-  "tenants": [],
-  "finances": [],
-  "demands": []
+  "users": [
+    {
+      "email": "teste1@teste.com",
+      "password": "$2a$10$H.5Ib1SS11aHfqEA3GUo6OabzP5F6iQ7V6MiVfMgrS4XbCg3JpFM.",
+      "id": 1,
+      "name": "Omar"
+    },
+    {
+      "email": "teste2@teste.com",
+      "password": "$2a$10$DTRT6H1aayCBFwcdDPPbC.WXQyn2JGaU7mhSFdcV/j/HSRMZ2baPC",
+      "id": 2
+    }
+  ],
+  "tenants": [
+    {
+      "name": "joao otavio",
+      "userId": 1,
+      "id": 1
+    }
+  ],
+  "finances": [
+    {
+      "value": 200,
+      "userId": 1,
+      "id": 1
+    }
+  ],
+  "demands": [
+    {
+      "name": "consetar pia",
+      "value": 200,
+      "userId": 1,
+      "id": 1
+    }
+  ]
 }
